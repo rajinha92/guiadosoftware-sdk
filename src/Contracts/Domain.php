@@ -21,7 +21,18 @@ abstract class Domain
 		$assoc = [];
 
 		foreach ($this as $key => $value) {
-			$assoc[$key] = $value;
+			if (!is_object($value)) {
+				$assoc[$key] = $value;
+				continue;
+			}
+
+			$valueAssoc = [];
+
+			foreach ($value as $k => $v) {
+				$valueAssoc[$k] = $v;
+			}
+
+			$assoc[$key] = $valueAssoc;
 		}
 
 		return $assoc;
