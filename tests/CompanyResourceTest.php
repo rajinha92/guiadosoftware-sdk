@@ -27,7 +27,7 @@ class CompanyResourceTest extends BaseApi
 		                     ->store($object);
 
 		$this->assertInstanceOf(Company::class, $company);
-		$this->assertGreaterThan(0, $company->getId());
+		$this->assertGreaterThan(0, strlen($company->getId()));
 		$this->assertEquals($object->getEmail(), $company->getEmail());
 		$this->assertEquals($object->getName(), $company->getName());
 		$this->assertEquals($object->getBrazilianOffice(), $company->getBrazilianOffice());
@@ -82,6 +82,7 @@ class CompanyResourceTest extends BaseApi
 
 		$company = $this->api->company()
 		                     ->get($companies[0]->getId());
+
 		$this->assertInstanceOf(Company::class, $company);
 	}
 }

@@ -9,8 +9,6 @@
 namespace GuiaDoSoftwareSdk\Traits;
 
 
-use Faker\Provider\DateTime;
-
 trait SafeGet
 {
 	public function getSafe($key, \stdClass $object = null, $default = null)
