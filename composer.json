@@ -1,0 +1,27 @@
+{
+  "name": "rajinha92/guiadosoftware-sdk",
+  "description": "This package provides a sdk to GuiaDoSoftware API",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rafael Conradn",
+      "email": "rafael.conrado.farias@gmail.com"
+    }
+  ],
+  "minimum_stability": "dev",
+  "require": {
+    "php": ">=7.0",
+    "phpunit/phpunit": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "GuiaDoSoftwareSdk\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "GuiaDoSoftwareSdk\\Tests\\": "tests/"
+    }
+  }
+}
