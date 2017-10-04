@@ -9,7 +9,7 @@
       "email": "rafael.conrado.farias@gmail.com"
     }
   ],
-  "minimum_stability": "dev",
+  "minimum_stability": "stable",
   "require": {
     "php": ">=7.0"
   },

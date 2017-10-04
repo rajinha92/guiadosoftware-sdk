@@ -28,6 +28,8 @@ class Company extends Domain
 	protected $nationality;
 	protected $brazilian_office;
 	protected $logo_path;
+	public    $company_emails;
+	public    $company_phones;
 
 	public function __construct(\stdClass $stdClass = null)
 	{
@@ -247,5 +249,7 @@ class Company extends Domain
 		$this->nationality      = $this->getSafe('nationality', $source);
 		$this->brazilian_office = $this->getSafe('brazilian_office', $source);
 		$this->logo_path        = $this->getSafe('logo_path', $source);
+		$this->company_emails   = $this->getSafe('company_emails', $source);
+		$this->company_phones   = $this->getSafe('company_phones', $source);
 	}
 }
