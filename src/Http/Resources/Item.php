@@ -51,6 +51,11 @@ class Item extends Requester
 		return $this->request('PUT', '/item/' . $item->getId(), (array)$item);
 	}
 
+	public function delete($item_id)
+	{
+		return $this->request('DELETE', '/item/' . $item_id, []);
+	}
+
 	public function plans($id)
 	{
 		return $this->request('GET', '/item/' . $id . '/plans', []);
