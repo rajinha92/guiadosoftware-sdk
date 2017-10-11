@@ -14,13 +14,13 @@ use GuiaDoSoftwareSdk\Domains\Media as MediaDomain;
 
 class Media extends Requester
 {
-    public function add(MediaDomain $media, $item_id)
-    {
-        return $this->request('POST', '/item/' . $item_id . '/media', (array)$media);
-    }
+	public function add(array $media, $item_id)
+	{
+		return $this->request('POST', '/item/' . $item_id . '/media', $media);
+	}
 
-    public function remove($item_id, $media_id)
-    {
-        return $this->request('DELETE', '/item/' . $item_id . '/media/' . $media_id, []);
-    }
+	public function remove($item_id, $media_id)
+	{
+		return $this->request('DELETE', '/item/' . $item_id . '/media/' . $media_id, []);
+	}
 }
