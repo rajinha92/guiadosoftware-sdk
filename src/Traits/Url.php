@@ -12,7 +12,7 @@ namespace GuiaDoSoftwareSdk\Traits;
 trait Url
 {
 
-    protected $url = 'http://guiadosoftware.com';
+    protected $guiaUrl    = 'http://guiadosoftware.com';
     protected $scaledPath = '/image/scaled/';
 
     public function getFile($filePath)
@@ -20,7 +20,7 @@ trait Url
         if ($filePath[0] != '/')
             $filePath = '/' . $filePath;
 
-        return $this->url . $filePath;
+        return $this->guiaUrl . $filePath;
     }
 
     public function getImage($imagePath)
@@ -28,7 +28,7 @@ trait Url
         if ($imagePath[0] != '/')
             $imagePath = '/' . $imagePath;
 
-        return $this->url . $imagePath;
+        return $this->guiaUrl . $imagePath;
     }
 
     public function getScaledImage($imagePath, $width, $height)
@@ -36,7 +36,7 @@ trait Url
         if ($imagePath[0] == '/')
             $imagePath = substr($imagePath, 1);
 
-        return sprintf('%s%s%s/%s?path=%s', $this->url, $this->scaledPath, $width, $height, $imagePath);
+        return sprintf('%s%s%s/%s?path=%s', $this->guiaUrl, $this->scaledPath, $width, $height, $imagePath);
     }
 
 }
