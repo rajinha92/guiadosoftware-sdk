@@ -17,7 +17,7 @@ class InformationRequest extends Requester
 
 	public function bootgrid($company_id, $type, $start, $length, $search, array $order)
 	{
-		return $this->request('GET', '/information-request/bootgrid/' . $company_id . '/' . $type,
+		return $this->request('GET', '/information-request/bootgrid/' . $type . '/' . $company_id,
 		                      compact('start', 'length', 'search', 'order'));
 
 	}
