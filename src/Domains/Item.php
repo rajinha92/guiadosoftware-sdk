@@ -41,6 +41,7 @@ class Item extends Domain
 	protected $company;
 	protected $category_id;
 	protected $category;
+	protected $medias;
 
 	public function __construct(\stdClass $stdClass = null)
 	{
@@ -358,6 +359,11 @@ class Item extends Domain
 		return $this;
 	}
 
+	public function getMedias()
+	{
+		return $this->medias;
+	}
+
 
 	public function populate(\stdClass $source)
 	{
@@ -385,5 +391,6 @@ class Item extends Domain
 		$this->company           = new Company($this->getSafe('company', $source));
 		$this->category_id       = $this->getSafe('category_id', $source);
 		$this->category          = new ItemCategory($this->getSafe('category', $source));
+		$this->medias            = $this->getSafe('medias', $source);
 	}
 }
