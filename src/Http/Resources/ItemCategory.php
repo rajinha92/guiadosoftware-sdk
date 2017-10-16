@@ -21,7 +21,7 @@ class ItemCategory extends Requester
 
     public function store(ItemCategoryDomain $itemCategory)
     {
-        $response = $this->request('POST', '/item-category', (array)$itemCategory);
+        $response = $this->request('POST', '/item-category', $itemCategory->toArray());
         return new ItemCategoryDomain($response);
     }
 
@@ -47,7 +47,7 @@ class ItemCategory extends Requester
 
     public function update(ItemCategoryDomain $itemCategory)
     {
-        return $this->request('PUT', '/item-category/' . $itemCategory->getId(), (array)$itemCategory);
+        return $this->request('PUT', '/item-category/' . $itemCategory->getId(), $itemCategory->toArray());
     }
 
     public function publish($id)

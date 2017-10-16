@@ -23,12 +23,12 @@ class ItemPlan extends Requester
 
 	public function store(ItemPlanDomain $itemPlan)
 	{
-		return $this->request('POST', '/item-plan', (array)$itemPlan);
+		return $this->request('POST', '/item-plan', $itemPlan->toArray());
 	}
 
 	public function update(ItemPlanDomain $itemPlan)
 	{
-		return $this->request('PUT', '/item-plan/' . $itemPlan->getId(), (array)$itemPlan);
+		return $this->request('PUT', '/item-plan/' . $itemPlan->getId(), $itemPlan->toArray());
 	}
 
 	public function delete($id)

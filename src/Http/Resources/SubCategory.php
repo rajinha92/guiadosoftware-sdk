@@ -38,12 +38,12 @@ class SubCategory extends Requester
 
     public function store(SubCategoryDomain $subCategory)
     {
-        return $this->request('POST', '/sub-category', (array)$subCategory);
+        return $this->request('POST', '/sub-category', $subCategory->toArray());
     }
 
     public function update(SubCategoryDomain $subCategory)
     {
-        return $this->request('PUT', '/sub-category/' . $subCategory->getId(), (array)$subCategory);
+        return $this->request('PUT', '/sub-category/' . $subCategory->getId(), $subCategory->toArray());
     }
 
     public function publish($id)

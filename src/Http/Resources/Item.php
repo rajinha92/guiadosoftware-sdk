@@ -43,12 +43,12 @@ class Item extends Requester
 
 	public function store(ItemDomain $item)
 	{
-		return $this->request('POST', '/item', (array)$item);
+		return $this->request('POST', '/item', $item->toArray());
 	}
 
 	public function update(ItemDomain $item)
 	{
-		return $this->request('PUT', '/item/' . $item->getId(), (array)$item);
+		return $this->request('PUT', '/item/' . $item->getId(), $item->toArray());
 	}
 
 	public function delete($item_id)
