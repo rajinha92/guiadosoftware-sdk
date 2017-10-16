@@ -26,6 +26,7 @@ class SubCategory extends Domain
 	protected $updated_at;
 	protected $content;
 	protected $title;
+	public $subcategory_attributes;
 
 	public function __construct(\stdClass $stdClass = null)
 	{
@@ -197,5 +198,6 @@ class SubCategory extends Domain
 		$this->updated_at       = $this->getSafeDateTime('updated_at', $source);
 		$this->content          = $this->getSafe('content', $source);
 		$this->title            = $this->getSafe('title', $source);
+		$this->subcategory_attributes = $this->getSafe('subcategory_attributes');
 	}
 }
