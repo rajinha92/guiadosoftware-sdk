@@ -14,50 +14,57 @@ use GuiaDoSoftwareSdk\Domains\ItemCategory as ItemCategoryDomain;
 
 class ItemCategory extends Requester
 {
-    public function bootgrid($start, $length, $search, array $order)
-    {
-        return $this->request('GET', '/item-category/bootgrid', compact('start', 'length', 'search', 'order'));
-    }
+	public function bootgrid($start, $length, $search, array $order)
+	{
+		return $this->request('GET', '/item-category/bootgrid', compact('start', 'length', 'search', 'order'));
+	}
 
-    public function store(ItemCategoryDomain $itemCategory)
-    {
-        $response = $this->request('POST', '/item-category', $itemCategory->toArray());
-        return new ItemCategoryDomain($response);
-    }
+	public function store(ItemCategoryDomain $itemCategory)
+	{
+		$response = $this->request('POST', '/item-category', $itemCategory->toArray());
 
-    public function get($id = null)
-    {
-        if ($id)
-            $response = $this->request('GET', '/item-category/' . $id, []);
-        else
-        $response = $this->request('GET', '/item-category', []);
+		return new ItemCategoryDomain($response);
+	}
 
-        if(!is_array($response))
-        	return new ItemCategoryDomain($response);
+	public function get($id = null)
+	{
+		if ($id) {
+			$response = $this->request('GET', '/item-category/' . $id, []);
+		}
+		else {
+			$response = $this->request('GET', '/item-category', []);
+		}
 
-        $itemCategories = [];
+		if (!is_array($response)) {
+			return new ItemCategoryDomain($response);
+		}
 
-        foreach($response as $res){
-        	$itemCategories[] = new ItemCategoryDomain($res);
-        }
+		$itemCategories = [];
 
-        return $itemCategories;
+		foreach ($response as $res) {
+			$itemCategories[] = new ItemCategoryDomain($res);
+		}
 
-    }
+		return $itemCategories;
 
-    public function update(ItemCategoryDomain $itemCategory)
-    {
-        return $this->request('PUT', '/item-category/' . $itemCategory->getId(), $itemCategory->toArray());
-    }
+	}
 
-    public function publish($id)
-    {
-        return $this->request('POST', '/item-category/' . $id . '/publish', []);
-    }
+	public function update(ItemCategoryDomain $itemCategory)
+	{
+		$response = $this->request('PUT', '/item-category/' . $itemCategory->getId(), $itemCategory->toArray());
 
-    public function unpublish($id)
-    {
-        return $this->request('POST', '/item-category/' . $id . '/unpublish', []);
-    }
+		return new ItemCategoryDomain($response);
+
+	}
+
+	public function publish($id)
+	{
+		return $this->request('POST', '/item-category/' . $id . '/publish', []);
+	}
+
+	public function unpublish($id)
+	{
+		return $this->request('POST', '/item-category/' . $id . '/unpublish', []);
+	}
 
 }
