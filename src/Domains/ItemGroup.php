@@ -22,6 +22,7 @@ class ItemGroup extends Domain
 	protected $is_published;
 	protected $created_at;
 	protected $updated_at;
+	public $item_categories;
 
 	public function __construct(\stdClass $stdClass = null)
 	{
@@ -133,5 +134,6 @@ class ItemGroup extends Domain
 		$this->is_published = $this->getSafe('is_published', $source);
 		$this->created_at   = $this->getSafeDateTime('created_at', $source);
 		$this->updated_at   = $this->getSafeDateTime('updated_at', $source);
+		$this->item_categories = $this->getSafe('item_categories', $source);
 	}
 }
