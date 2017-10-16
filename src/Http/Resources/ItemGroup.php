@@ -22,7 +22,9 @@ class ItemGroup extends Requester
 
 	public function store(ItemGroupDomain $itemGroup)
 	{
-		return $this->request('POST', '/item-group', $itemGroup->toArray());
+		$response = $this->request('POST', '/item-group', $itemGroup->toArray());
+
+		return new ItemGroupDomain($response);
 	}
 
 	public function get($id = null)
@@ -49,7 +51,9 @@ class ItemGroup extends Requester
 
 	public function update(ItemGroupDomain $itemGroup)
 	{
-		return $this->request('PUT', '/item-group/' . $itemGroup->getId(), $itemGroup->toArray());
+		$response = $this->request('PUT', '/item-group/' . $itemGroup->getId(), $itemGroup->toArray());
+
+		return new ItemGroupDomain($response);
 	}
 
 	public function publish($id)
