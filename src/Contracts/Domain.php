@@ -9,8 +9,12 @@
 namespace GuiaDoSoftwareSdk\Contracts;
 
 
-abstract class Domain
+use GuiaDoSoftwareSdk\Traits\JsonSerializer;
+
+abstract class Domain implements \JsonSerializable
 {
+	use JsonSerializer;
+
 	public function populate(\stdClass $source)
 	{
 		throw new \Exception("Method not implemented yet");

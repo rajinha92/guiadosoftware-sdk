@@ -54,7 +54,10 @@ trait SafeGet
 		}
 
 		if (isset($object->$key)) {
-			if (!empty($format)) {
+			if ($object->$key instanceof \DateTime) {
+				$date = $object->$key;
+			}
+			else if (!empty($format)) {
 				$date = \DateTime::createFromFormat($format, $object->$key);
 			}
 			else {
